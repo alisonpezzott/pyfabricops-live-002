@@ -1,0 +1,7 @@
+[{"source":{"table":"DimCustomer"},"destination":{"filename":"dbo.DimCustomer.parquet"}},
+ {"source":{"table":"DimDate"},"destination":{"filename":"dbo.DimDate.parquet"}},
+ {"source":{"table":"DimGeography"},"destination":{"filename":"dbo.DimGeography.parquet"}},
+ {"source":{"table":"DimProduct"},"destination":{"filename":"dbo.DimProduct.parquet"}},
+ {"source":{"table":"DimProductCategory"},"destination":{"filename":"dbo.DimProductCategory.parquet"}},
+ {"source":{"table":"DimProductSubcategory"},"destination":{"filename":"dbo.DimProductSubcategory.parquet"}},
+ {"source":{"table":"FactInternetSales"},"destination":{"filename":"dbo.FactInternetSales.parquet"}}]

@@ -1,0 +1,1 @@
+Just a simple example of using PyFabricOps for deployment with Microsoft Fabric.
