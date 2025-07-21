@@ -1,0 +1,68 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "3230f99b836dfeea3385",
+  "position": {
+    "x": 368,
+    "y": 32,
+    "z": 4,
+    "height": 160,
+    "width": 224
+  },
+  "visual": {
+    "visualType": "multiRowCard",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FactInternetSales"
+                    }
+                  },
+                  "Property": "Qty Customers"
+                }
+              },
+              "queryRef": "FactInternetSales.Qty Customers",
+              "nativeQueryRef": "Qty Customers"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FactInternetSales"
+                    }
+                  },
+                  "Property": "Sales Amount"
+                }
+              },
+              "queryRef": "FactInternetSales.Sales Amount",
+              "nativeQueryRef": "Sales Amount"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "FactInternetSales"
+                  }
+                },
+                "Property": "Qty Customers"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
