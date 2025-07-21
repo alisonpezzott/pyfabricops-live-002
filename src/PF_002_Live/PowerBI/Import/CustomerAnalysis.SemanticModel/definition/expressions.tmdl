@@ -1,11 +1,11 @@
-expression Server = "gvkmt76pz4cuhm2fs63qgxl5cy-pj6otf6lv7wuleizo6dcxtwc7u.datawarehouse.fabric.microsoft.com" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=false]
+expression Server = "#{Server}#" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=false]
 	lineageTag: 8df9127a-4bf1-4e24-b281-2e728f1f25a4
 
 	annotation PBI_NavigationStepName = Navigation
 
 	annotation PBI_ResultType = Text
 
-expression Database = "MainStorage" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=false]
+expression Database = "#{Database}#" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=false]
 	lineageTag: abd9019d-dbaa-411b-a4f1-00bd6ad5c16a
 
 	annotation PBI_NavigationStepName = Navigation

@@ -20,8 +20,8 @@
 
 # PARAMETERS CELL ********************
 
-workspace_name = "PF_002_Live-PRD"
-lakehouse_name = "MainStorage"
+workspace_name = "#{TransformAndLoad_workspace_name}#"
+lakehouse_name = "#{TransformAndLoad_lakehouse_name}#"
 lakehouse_abfss = f"abfss://{workspace_name}@onelake.dfs.fabric.microsoft.com/{lakehouse_name}.Lakehouse"
 files_path = f"{lakehouse_abfss}/Files/Raw"
 tables_path = f"{lakehouse_abfss}/Tables" 

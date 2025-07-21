@@ -37,10 +37,10 @@
                         "value": "@item().source.table",
                         "type": "Expression"
                       },
-                      "database": "AdventureWorksDW2022-PRD"
+                      "database": "#{ForEachCopyData_CopyData_source_database}#"
                     },
                     "externalReferences": {
-                      "connection": "25c39679-c050-4b46-a7e3-6d2915a9542a"
+                      "connection": "#{ForEachCopyData_CopyData_source_connection}#"
                     }
                   }
                 },
@@ -61,8 +61,8 @@
                         "annotations": [],
                         "type": "Lakehouse",
                         "typeProperties": {
-                          "workspaceId": "97e97c7a-afcb-45ed-9119-77862bcec2fd",
-                          "artifactId": "2b7304e2-adce-4b1f-8598-5bbb0e8a7cbf",
+                          "workspaceId": "#{ForEachCopyData_CopyData_sink_workspace_id}#",
+                          "artifactId": "#{ForEachCopyData_CopyData_sink_artifact_id}#",
                           "rootFolder": "Files"
                         }
                       }
