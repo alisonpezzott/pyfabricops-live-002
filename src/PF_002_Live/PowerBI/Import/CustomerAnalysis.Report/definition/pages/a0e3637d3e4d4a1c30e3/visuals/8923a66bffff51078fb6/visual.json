@@ -1,0 +1,56 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "8923a66bffff51078fb6",
+  "position": {
+    "x": 48,
+    "y": 32,
+    "z": 1,
+    "height": 160,
+    "width": 224
+  },
+  "visual": {
+    "visualType": "card",
+    "autoSelectVisualType": true,
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FactInternetSales"
+                    }
+                  },
+                  "Property": "Qty Customers"
+                }
+              },
+              "queryRef": "FactInternetSales.Qty Customers",
+              "nativeQueryRef": "Qty Customers"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "5fc5ff17297beb62e2e1",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FactInternetSales"
+              }
+            },
+            "Property": "Qty Customers"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}
