@@ -26,7 +26,8 @@
                 }
               },
               "queryRef": "DimCustomer.Gender",
-              "nativeQueryRef": "Gender"
+              "nativeQueryRef": "Gender",
+              "active": true
             }
           ]
         },
