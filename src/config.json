@@ -204,7 +204,10 @@
                             "variable_value": "MainStorage",
                             "parameter_type": "string"
                         }
-                    ]
+                    ],
+                    "id": "2b1ce127-9f12-45b7-b633-d337e1b97d2e",
+                    "description": "New notebook",
+                    "folder_id": "583a4ce9-1122-4df8-be38-3c306cd64f10"
                 }
             }
         }
