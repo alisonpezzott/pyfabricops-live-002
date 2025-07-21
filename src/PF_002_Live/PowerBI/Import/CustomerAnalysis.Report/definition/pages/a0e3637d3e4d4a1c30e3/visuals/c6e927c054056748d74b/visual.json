@@ -1,0 +1,104 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "c6e927c054056748d74b",
+  "position": {
+    "x": 320,
+    "y": 64,
+    "z": 2,
+    "height": 512,
+    "width": 656
+  },
+  "visual": {
+    "visualType": "map",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimCustomer"
+                    }
+                  },
+                  "Property": "CountryRegion"
+                }
+              },
+              "queryRef": "DimCustomer.CountryRegion",
+              "nativeQueryRef": "CountryRegion"
+            }
+          ]
+        },
+        "Size": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FactInternetSales"
+                    }
+                  },
+                  "Property": "Qty Customers"
+                }
+              },
+              "queryRef": "FactInternetSales.Qty Customers",
+              "nativeQueryRef": "Qty Customers"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "FactInternetSales"
+                  }
+                },
+                "Property": "Qty Customers"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "66fd6c29e6bb44831fa5",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimCustomer"
+              }
+            },
+            "Property": "CountryRegion"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "07c9b487b9f734668af6",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FactInternetSales"
+              }
+            },
+            "Property": "Qty Customers"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

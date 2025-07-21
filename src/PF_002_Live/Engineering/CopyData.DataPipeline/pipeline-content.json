@@ -1,0 +1,164 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "name": "ForEachCopyData",
+        "type": "ForEach",
+        "dependsOn": [],
+        "typeProperties": {
+          "items": {
+            "value": "@pipeline().parameters.database_tables",
+            "type": "Expression"
+          },
+          "activities": [
+            {
+              "name": "CopyData",
+              "type": "Copy",
+              "dependsOn": [],
+              "policy": {
+                "timeout": "0.12:00:00",
+                "retry": 0,
+                "retryIntervalInSeconds": 30,
+                "secureOutput": false,
+                "secureInput": false
+              },
+              "typeProperties": {
+                "source": {
+                  "type": "SqlServerSource",
+                  "queryTimeout": "02:00:00",
+                  "partitionOption": "None",
+                  "datasetSettings": {
+                    "annotations": [],
+                    "type": "SqlServerTable",
+                    "schema": [],
+                    "typeProperties": {
+                      "schema": "dbo",
+                      "table": {
+                        "value": "@item().source.table",
+                        "type": "Expression"
+                      },
+                      "database": "#{ForEachCopyData_CopyData_source_database}#"
+                    },
+                    "externalReferences": {
+                      "connection": "#{ForEachCopyData_CopyData_source_connection}#"
+                    }
+                  }
+                },
+                "sink": {
+                  "type": "ParquetSink",
+                  "storeSettings": {
+                    "type": "LakehouseWriteSettings"
+                  },
+                  "formatSettings": {
+                    "type": "ParquetWriteSettings",
+                    "enableVertiParquet": true
+                  },
+                  "datasetSettings": {
+                    "annotations": [],
+                    "linkedService": {
+                      "name": "MainStorage",
+                      "properties": {
+                        "annotations": [],
+                        "type": "Lakehouse",
+                        "typeProperties": {
+                          "workspaceId": "#{ForEachCopyData_CopyData_sink_workspace_id}#",
+                          "artifactId": "#{ForEachCopyData_CopyData_sink_artifact_id}#",
+                          "rootFolder": "Files"
+                        }
+                      }
+                    },
+                    "type": "Parquet",
+                    "typeProperties": {
+                      "location": {
+                        "type": "LakehouseLocation",
+                        "fileName": {
+                          "value": "@item().destination.filename",
+                          "type": "Expression"
+                        },
+                        "folderPath": "Raw"
+                      },
+                      "compressionCodec": "snappy"
+                    },
+                    "schema": []
+                  }
+                },
+                "enableStaging": false,
+                "translator": {
+                  "type": "TabularTranslator",
+                  "typeConversion": true,
+                  "typeConversionSettings": {
+                    "allowDataTruncation": true,
+                    "treatBooleanAsNumber": false
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "parameters": {
+      "database_tables": {
+        "type": "array",
+        "defaultValue": [
+          {
+            "source": {
+              "table": "DimCustomer"
+            },
+            "destination": {
+              "filename": "dbo.DimCustomer.parquet"
+            }
+          },
+          {
+            "source": {
+              "table": "DimDate"
+            },
+            "destination": {
+              "filename": "dbo.DimDate.parquet"
+            }
+          },
+          {
+            "source": {
+              "table": "DimGeography"
+            },
+            "destination": {
+              "filename": "dbo.DimGeography.parquet"
+            }
+          },
+          {
+            "source": {
+              "table": "DimProduct"
+            },
+            "destination": {
+              "filename": "dbo.DimProduct.parquet"
+            }
+          },
+          {
+            "source": {
+              "table": "DimProductCategory"
+            },
+            "destination": {
+              "filename": "dbo.DimProductCategory.parquet"
+            }
+          },
+          {
+            "source": {
+              "table": "DimProductSubcategory"
+            },
+            "destination": {
+              "filename": "dbo.DimProductSubcategory.parquet"
+            }
+          },
+          {
+            "source": {
+              "table": "FactInternetSales"
+            },
+            "destination": {
+              "filename": "dbo.FactInternetSales.parquet"
+            }
+          }
+        ]
+      }
+    }
+  }
+}

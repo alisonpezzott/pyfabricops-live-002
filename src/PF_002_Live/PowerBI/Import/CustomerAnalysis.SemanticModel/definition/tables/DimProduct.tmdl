@@ -1,0 +1,81 @@
+table DimProduct
+	lineageTag: 637f40fd-bfcd-401d-8c99-308fb5308c08
+
+	column ProductKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 944a978c-b61b-48d2-b680-549ccb439608
+		summarizeBy: none
+		sourceColumn: ProductKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductName
+		dataType: string
+		lineageTag: a12b2cc7-7b9e-4bfe-8264-e2c9d031696c
+		summarizeBy: none
+		sourceColumn: ProductName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Color
+		dataType: string
+		lineageTag: 41d78aab-88d9-4f53-a5f8-cbcbfe1f15eb
+		summarizeBy: none
+		sourceColumn: Color
+
+		annotation SummarizationSetBy = Automatic
+
+	column Size
+		dataType: string
+		lineageTag: e9d2e957-d588-4854-a64d-4cc3ce36da00
+		summarizeBy: none
+		sourceColumn: Size
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModelName
+		dataType: string
+		lineageTag: 4badebbb-5495-4165-a127-ea16303a8448
+		summarizeBy: none
+		sourceColumn: ModelName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		dataType: string
+		lineageTag: 7d46f14b-1506-4c1f-b680-2f19a35051b2
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductSubcategoyName
+		dataType: string
+		lineageTag: a546e643-f3db-4a1c-8a9c-eb3380dac3ec
+		summarizeBy: none
+		sourceColumn: ProductSubcategoyName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductCategoryName
+		dataType: string
+		lineageTag: 3854c9de-a632-499e-bbc7-5160bc611be2
+		summarizeBy: none
+		sourceColumn: ProductCategoryName
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimProduct = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database(Server, Database),
+				    dbo_DimProduct = Source{[Schema="dbo",Item="DimProduct"]}[Data]
+				in
+				    dbo_DimProduct
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

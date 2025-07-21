@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Lakehouse",
+    "displayName": "MainStorage",
+    "description": "A lakehouse for the Microsoft Fabric project with PyFabricOps"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "24bb8023-fabc-4790-af74-9d652647a7ac"
+  }
+}

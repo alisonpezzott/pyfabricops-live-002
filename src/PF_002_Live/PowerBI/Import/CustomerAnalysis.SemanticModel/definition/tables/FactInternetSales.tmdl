@@ -1,0 +1,114 @@
+table FactInternetSales
+	lineageTag: 138368ae-beeb-40b4-aa11-40d2ae5fd6bf
+
+	measure 'Qty Customers' = ```
+			DISTINCTCOUNT('FactInternetSales'[CustomerKey]) 
+			```
+		formatString: 0
+		lineageTag: 30cb8d7f-2748-42e5-b1f8-ac231b8df830
+
+	column ProductKey
+		dataType: int64
+		formatString: 0
+		lineageTag: ae8bf3c7-5bb1-4cc3-a74a-8262d5cf81ae
+		summarizeBy: none
+		sourceColumn: ProductKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column OrderDateKey
+		dataType: int64
+		formatString: 0
+		lineageTag: c02070c0-e508-4401-821d-b74edd37ea07
+		summarizeBy: none
+		sourceColumn: OrderDateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column DueDateKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 74a003c5-d6d4-483b-b232-f24ea3b49208
+		summarizeBy: count
+		sourceColumn: DueDateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ShipDateKey
+		dataType: int64
+		formatString: 0
+		lineageTag: a7bb4105-dec1-45d4-9365-5d0e7922a89a
+		summarizeBy: count
+		sourceColumn: ShipDateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerKey
+		dataType: int64
+		formatString: 0
+		lineageTag: c86769ef-c3f7-45b5-93c2-fc4e66874258
+		summarizeBy: none
+		sourceColumn: CustomerKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesOrderNumber
+		dataType: string
+		lineageTag: 08af3246-0340-4c42-b6b8-66ad27f7a7ca
+		summarizeBy: none
+		sourceColumn: SalesOrderNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column OrderQuantity
+		dataType: int64
+		formatString: 0
+		lineageTag: 1858fddb-01d1-44de-acd3-f148873b3d40
+		summarizeBy: sum
+		sourceColumn: OrderQuantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column UnitPrice
+		dataType: double
+		lineageTag: d5c2f863-123d-42a9-a746-05329c7a0cd8
+		summarizeBy: sum
+		sourceColumn: UnitPrice
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column UnitPriceDiscountPct
+		dataType: double
+		lineageTag: 1e17e406-bb4a-46a1-96f3-3b4683276239
+		summarizeBy: sum
+		sourceColumn: UnitPriceDiscountPct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ProductStandardCost
+		dataType: double
+		lineageTag: 4338f9d9-4f47-4cb0-9e1b-9615a98f0f87
+		summarizeBy: sum
+		sourceColumn: ProductStandardCost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition FactInternetSales = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database(Server, Database),
+				    dbo_FactInternetSales = Source{[Schema="dbo",Item="FactInternetSales"]}[Data]
+				in
+				    dbo_FactInternetSales
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

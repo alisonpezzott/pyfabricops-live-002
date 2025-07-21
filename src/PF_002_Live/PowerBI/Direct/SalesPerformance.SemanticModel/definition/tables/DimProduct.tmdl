@@ -1,0 +1,94 @@
+table DimProduct
+	lineageTag: a2e0d428-ec9b-4917-b67a-0821c4e52609
+	sourceLineageTag: [dbo].[DimProduct]
+
+	column ProductKey
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 92a86377-3580-40d6-9ae2-c48c7eafd408
+		sourceLineageTag: ProductKey
+		summarizeBy: none
+		sourceColumn: ProductKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductName
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 479f789c-3e23-45a5-8653-8a10a741d37a
+		sourceLineageTag: ProductName
+		summarizeBy: none
+		sourceColumn: ProductName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Color
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 15186120-66f9-4a4c-971a-bdf0736d50a5
+		sourceLineageTag: Color
+		summarizeBy: none
+		sourceColumn: Color
+
+		annotation SummarizationSetBy = Automatic
+
+	column Size
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 4752d192-ec65-459e-b1e2-37a57a2a4fd3
+		sourceLineageTag: Size
+		summarizeBy: none
+		sourceColumn: Size
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModelName
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 1f9c6e4d-4c7f-4e26-876f-92cccee6e022
+		sourceLineageTag: ModelName
+		summarizeBy: none
+		sourceColumn: ModelName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 51883f8f-48e4-45a4-b2e0-efe108bc2f92
+		sourceLineageTag: Description
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductSubcategoyName
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 191c5812-d659-42cb-8006-779b4d8951c1
+		sourceLineageTag: ProductSubcategoyName
+		summarizeBy: none
+		sourceColumn: ProductSubcategoyName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductCategoryName
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: d701d4e1-b82c-4e38-9860-1ab4f4ba9ccb
+		sourceLineageTag: ProductCategoryName
+		summarizeBy: none
+		sourceColumn: ProductCategoryName
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimProduct = entity
+		mode: directLake
+		source
+			entityName: DimProduct
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

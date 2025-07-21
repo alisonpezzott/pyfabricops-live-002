@@ -1,0 +1,110 @@
+{
+    "dev": {
+        "PF_002_Live": {
+            "workspace_config": {
+                "workspace_id": "ca6ba34b-5400-4f48-b256-315be2b4153f",
+                "workspace_name": "PF_002_Live-DEV",
+                "workspace_description": "A Microsoft Fabric project with PyFabricOps - Live",
+                "capacity_id": "7732a1eb-3893-4642-a85c-93fc3f35d076",
+                "capacity_region": "East US",
+                "workspace_roles": [
+                    {
+                        "user_uuid": "9322eb4a-4132-4bd1-8df1-5cd3d1d2400b",
+                        "user_type": "User",
+                        "role": "Admin",
+                        "display_name": "Alison Pezzott",
+                        "user_principal_name": "alison.pezzott@overdax.com"
+                    },
+                    {
+                        "user_uuid": "b025341a-965a-4c35-b12e-2af63e5eb58f",
+                        "user_type": "User",
+                        "role": "Admin",
+                        "display_name": "Dev",
+                        "user_principal_name": "dev@overdax.com"
+                    },
+                    {
+                        "user_uuid": "bde43861-55e1-4144-b572-be115312967f",
+                        "user_type": "ServicePrincipal",
+                        "role": "Admin",
+                        "display_name": "AppFabric",
+                        "app_id": "7f3c52e1-46fa-4d5d-880b-c1e721a1f729"
+                    }
+                ]
+            },
+            "folders": {
+                "Engineering": "c2873f16-f721-4d4f-9773-0d0bafc0d347",
+                "PowerBI": "24d3a41f-9dcf-420e-9050-6b57a3ea7d3e",
+                "PowerBI/Direct": "13c0de2b-f85f-4dcd-94e7-ef6b84e8923a",
+                "PowerBI/Import": "a9d6cae6-2d0b-48ec-a5a0-8307e40eb821"
+            },
+            "lakehouses": {
+                "MainStorage": {
+                    "id": "f4f5b959-e8c9-438d-a0d5-a2bd5c95a3b3",
+                    "description": "A lakehouse for the Microsoft Fabric project with PyFabricOps",
+                    "folder_id": "c2873f16-f721-4d4f-9773-0d0bafc0d347",
+                    "sql_endpoint_id": "cbd913c1-6b0e-4767-87ca-057ed9ab5948",
+                    "sql_endpoint_connection_string": "gvkmt76pz4cuhm2fs63qgxl5cy-jorwxsqakree7mswgfn6fnavh4.datawarehouse.fabric.microsoft.com"
+                }
+            },
+            "data_pipelines": {
+                "CopyData": {
+                    "id": "e9e63416-7ead-4b95-b2ac-6ab33c7b8211",
+                    "description": "",
+                    "folder_id": "c2873f16-f721-4d4f-9773-0d0bafc0d347",
+                    "variables": [
+                        {
+                            "activity_index": 0,
+                            "activity_name": "ForEachCopyData",
+                            "subactivity_index": 0,
+                            "subactivity_name": "CopyData",
+                            "source_database": "AdventureWorksDW2022-DEV",
+                            "source_connection": "2411a00d-8722-46cc-abef-7298906bd27d",
+                            "sink_name": "MainStorage",
+                            "sink_workspace_id": "ca6ba34b-5400-4f48-b256-315be2b4153f",
+                            "sink_artifact_id": "f4f5b959-e8c9-438d-a0d5-a2bd5c95a3b3"
+                        }
+                    ]
+                }
+            },
+            "semantic_models": {
+                "SalesPerformance": {
+                    "id": "05730b10-5a8f-493e-a054-7bf174896543",
+                    "description": "",
+                    "folder_id": "13c0de2b-f85f-4dcd-94e7-ef6b84e8923a",
+                    "parameters": {
+                        "ServerEndpoint": "GVKMT76PZ4CUHM2FS63QGXL5CY-JORWXSQAKREE7MSWGFN6FNAVH4.datawarehouse.fabric.microsoft.com",
+                        "DatabaseId": "cbd913c1-6b0e-4767-87ca-057ed9ab5948"
+                    }
+                },
+                "CustomerAnalysis": {
+                    "id": "59f7a86f-a9ba-41ae-8f04-a2b6e8b7a432",
+                    "description": "",
+                    "folder_id": "a9d6cae6-2d0b-48ec-a5a0-8307e40eb821",
+                    "parameters": {
+                        "Server": "gvkmt76pz4cuhm2fs63qgxl5cy-jorwxsqakree7mswgfn6fnavh4.datawarehouse.fabric.microsoft.com",
+                        "Database": "MainStorage"
+                    }
+                }
+            },
+            "notebooks": {
+                "TransformAndLoad": {
+                    "id": "9d7f5623-bce0-41f3-b515-3976ad371961",
+                    "description": "New notebook",
+                    "folder_id": "c2873f16-f721-4d4f-9773-0d0bafc0d347",
+                    "variables": [
+                        {
+                            "variable_name": "workspace_name",
+                            "variable_value": "PF_002_Live-DEV",
+                            "parameter_type": "string"
+                        },
+                        {
+                            "variable_name": "lakehouse_name",
+                            "variable_value": "MainStorage",
+                            "parameter_type": "string"
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}

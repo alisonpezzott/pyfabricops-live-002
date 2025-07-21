@@ -1,0 +1,12 @@
+relationship AutoDetected_5da20be3-6eac-4282-b073-9b4010a6b860
+	fromColumn: FactInternetSales.CustomerKey
+	toColumn: DimCustomer.CustomerKey
+
+relationship AutoDetected_5a3fcc7c-fde7-484c-8d7e-d1994e147e14
+	fromColumn: FactInternetSales.ProductKey
+	toColumn: DimProduct.ProductKey
+
+relationship e76ae5ec-76af-782a-f201-61b4a26d6062
+	fromColumn: FactInternetSales.OrderDateKey
+	toColumn: DimDate.DateKey
+
